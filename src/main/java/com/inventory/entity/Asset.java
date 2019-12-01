@@ -16,5 +16,6 @@ public class Asset {
 	@NotBlank(message = "asset name can not be blank")
 	private String assetName;
 	private Integer installDate;
+	private Boolean isAvailable;
 
 }

@@ -48,6 +48,7 @@ public class AssetService {
 		if (a != null) {
 			a.setAssetName(dto.getAssetName());
 			a.setInstallDate(dto.getInstallDate());
+			a.setIsAvailable(dto.getIsAvailable());
 			repo.save(a);
 		}
 	}

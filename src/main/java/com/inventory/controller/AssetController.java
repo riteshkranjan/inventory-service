@@ -38,7 +38,7 @@ public class AssetController {
 	}
 
 	@PutMapping("/{assetId}")
-	public void editAsset(@PathVariable int assetId, @Valid @RequestBody AssetDto a) {
+	public void editAsset(@PathVariable int assetId, @RequestBody AssetDto a) {
 		service.editAsset(assetId, a);
 	}
 

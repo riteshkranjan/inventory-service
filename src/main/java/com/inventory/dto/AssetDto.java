@@ -8,5 +8,7 @@ public class AssetDto {
 	private Integer assetId;
 	private String assetName;
 	private Integer installDate;
+	private Boolean isAvailable;
+
 
 }

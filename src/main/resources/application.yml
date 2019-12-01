@@ -3,36 +3,7 @@ server:
 spring:
     application:
         name: inverntory-service
-    jpa:
-       hibernate:
-          naming:
-             physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-          ddl-auto: none
-    datasource:
-       url: jdbc:mysql://localhost:3306/inventorydb?createDatabaseIfNotExist=true
-       username: root
-       password: 'abcd@123'
-       driver-class-name: com.mysql.jdbc.Driver
-       initialization-mode: never
-     #datasource:
-     #   password: 'ranjan'
-     #   url: jdbc:postgresql://localhost:5432/postgres_demo
-     #   username: ritesh
-    #jpa:
-     #   hibernate:
-            #ddl-auto: none
-        #properties:
-         #   hibernate:
-          #      dialect: org.hibernate.dialect.PostgreSQLDialect
-#security:
- #   oauth2:
-  #     client:     
-   #        clientId: e696eb2a8846aea94334
-    #       clientSecret: 8e07be5deed53b96fa6f1dc3981b111d11848f20
-     #      accessTokenUri: https://github.com/login/oauth/access_token
-      #     userAuthorizationUri: https://github.com/login/oauth/authorize
-       #    clientAuthenticationScheme: form
 
-      # resource:
-      #   userInfoUri: https://api.github.com/user
-      #   preferTokenInfo: false
+    profiles:
+        active:
+        - '@active_profile@'
