@@ -21,7 +21,9 @@ public class AssetService {
 	@Autowired
 	private ModelMapper mapper;
 
-	public int registerAsset(Asset a) {
+	public int registerAsset(AssetDto dto) {
+		Asset a = new Asset();
+		mapper.map(dto, a);
 		return repo.saveAndFlush(a).getAssetId();
 	}
 

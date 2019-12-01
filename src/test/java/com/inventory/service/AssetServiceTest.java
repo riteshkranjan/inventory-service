@@ -4,12 +4,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.inventory.dto.AssetDto;
-import com.inventory.entity.Asset;
 
 @SpringBootTest
 class AssetServiceTest {
@@ -17,12 +15,9 @@ class AssetServiceTest {
 	@Autowired
 	private AssetService service;
 	
-	@Autowired
-	private ModelMapper mapper;
-
 	@Test
 	void testAssetService() {
-		Asset a = new Asset();
+		AssetDto a = new AssetDto();
 		a.setAssetName("someAsset");
 		a.setInstallDate(1234);
 		a.setIsAvailable(true);
@@ -34,10 +29,8 @@ class AssetServiceTest {
 		Assertions.assertEquals(1234, assets.get(0).getInstallDate());
 		Assertions.assertEquals("someAsset", assets.get(0).getAssetName());
 		
-		AssetDto dto = new AssetDto();
-		mapper.map(a, dto);
-		dto.setAssetName("newName");
-		service.editAsset(assets.get(0).getAssetId(), dto);
+		a.setAssetName("newName");
+		service.editAsset(assets.get(0).getAssetId(), a);
 		
 		assets = service.getAsset("someAsset");
 		Assertions.assertEquals(0, assets.size());

@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inventory.dto.AssetDto;
-import com.inventory.entity.Asset;
 import com.inventory.service.AssetService;
 
 @RestController
@@ -33,12 +32,12 @@ public class AssetController {
 	private AssetService service;
 
 	@PostMapping
-	public int registerAsset(@Valid @RequestBody Asset a) {
+	public int registerAsset(@Valid @RequestBody AssetDto a) {
 		return service.registerAsset(a);
 	}
 
 	@PutMapping("/{assetId}")
-	public void editAsset(@PathVariable int assetId, @RequestBody AssetDto a) {
+	public void editAsset(@PathVariable int assetId,@Valid @RequestBody AssetDto a) {
 		service.editAsset(assetId, a);
 	}
 
